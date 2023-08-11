@@ -1,0 +1,69 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: ID
+  email: String!
+  firstName: String!
+  lastName: String!
+}
+
+type SigninResponse {
+  token: String!
+}
+
+type Blog {
+  id: ID
+  blogTitle: String
+  blogContent: String
+  blogTags: String
+  userId: String!
+}
+
+type Query {
+  blogs: [Blog!]!
+  allblogs(input: BlogFilter!): [Blog!]!
+  getBlogById(id: String!): Blog!
+  signin(input: UserSignInInput!): SigninResponse!
+  profile: User!
+}
+
+input BlogFilter {
+  blogTitle: String
+  blogTags: String
+}
+
+input UserSignInInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  createBlog(input: BlogInputType!): Blog!
+  updateBlog(input: BlogInputType!): Blog!
+  createOrUpdateBlog(input: BlogInputType!): Blog!
+  deleteBlog(id: String!): String!
+  signup(input: UserInput!): User!
+  updateProfile(input: UserProfileInput!): User!
+}
+
+input BlogInputType {
+  id: String
+  blogTitle: String!
+  blogContent: String!
+  blogTags: String!
+}
+
+input UserInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+}
+
+input UserProfileInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+}

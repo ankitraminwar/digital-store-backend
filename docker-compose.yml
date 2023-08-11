@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - digital-store-backend
+
+volumes:
+   postgres:
+      name: digital-store-backend-docker-db
+
+networks:
+   digital-store-backend:
